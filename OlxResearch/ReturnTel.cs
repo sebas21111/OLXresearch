@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OpenWebClient;
 using System.Globalization;
 
-namespace olx
+namespace OlxResearch
 {
     class ReturnTel
     {

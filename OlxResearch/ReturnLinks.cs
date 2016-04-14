@@ -5,19 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenWebClient;
 
-namespace olx
+namespace OlxResearch
 {
     class ReturnLinks
     {
-        int position, link100_value, j, pages;
-        string[,] links = new string[500, 42];
+        int position, link100_value, j, pages, id;
+        string[,,] links = new string[15, 500, 42];
         string index, link100, category;
-        public ReturnLinks(string category, int pages)
+        public ReturnLinks(string category, int pages, int id)
         {
             this.category = category;
             this.pages = pages;
+            this.id = id;
         }
-        public string[,] links_pages()
+        public string[,,] links_pages()
         {
             for (int i = 1; i <= this.pages; i++)
             {
@@ -43,7 +44,7 @@ namespace olx
                     link100 = index.Substring(position, 400);
 
                     link100_value = link100.IndexOf("\"", 0);
-                    links[id_page, j] = link100.Substring(0, link100_value);
+                    links[id,id_page, j] = link100.Substring(0, link100_value);
                 }
 
             }
