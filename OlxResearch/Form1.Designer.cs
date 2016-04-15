@@ -110,6 +110,7 @@
             this.checkBox15.TabIndex = 14;
             this.checkBox15.Text = "WSZYSTKIE KATEGORIE";
             this.checkBox15.UseVisualStyleBackColor = true;
+            this.checkBox15.CheckedChanged += new System.EventHandler(this.checkBox15_CheckedChanged);
             // 
             // checkBox14
             // 
@@ -322,6 +323,7 @@
             this.checkBox21.TabIndex = 5;
             this.checkBox21.Text = "WSZYSTKO";
             this.checkBox21.UseVisualStyleBackColor = true;
+            this.checkBox21.CheckedChanged += new System.EventHandler(this.checkBox21_CheckedChanged);
             // 
             // checkBox20
             // 
@@ -442,12 +444,12 @@
         internal System.Windows.Forms.CheckBox checkBox8;
         internal System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox21;
-        private System.Windows.Forms.CheckBox checkBox20;
-        private System.Windows.Forms.CheckBox checkBox19;
-        private System.Windows.Forms.CheckBox checkBox18;
-        private System.Windows.Forms.CheckBox checkBox17;
-        private System.Windows.Forms.CheckBox checkBox16;
+        internal System.Windows.Forms.CheckBox checkBox21;
+        internal System.Windows.Forms.CheckBox checkBox20;
+        internal System.Windows.Forms.CheckBox checkBox19;
+        internal System.Windows.Forms.CheckBox checkBox18;
+        internal System.Windows.Forms.CheckBox checkBox17;
+        internal System.Windows.Forms.CheckBox checkBox16;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

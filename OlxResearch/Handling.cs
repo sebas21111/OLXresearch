@@ -11,11 +11,17 @@ namespace OlxResearch
     {
         string[] category = new string[15];
         ReturnLinks[] Links = new ReturnLinks[15];
-        string[,,] links = new string[15, 500, 42];
+        ReturnTel[] Tel = new ReturnTel[15];
+        //string[,,] links = new string[15, 500, 42];
+        //string[,,,] data = new string[15, 501, 42, 5];
+        object[] linksAll = new object[15];
+        object[] dataAll = new object[15];
         Form1 formUp;
 
         public Handling(Form1 formUp)
         {
+            /* Można było również zrobić to przez publiczną właściwość w Form1 
+               która by zwracała czy checkBox jest kliknięty */
             this.formUp = formUp;
         }
         public void Start()
@@ -24,14 +30,19 @@ namespace OlxResearch
             Choice();
             CreateCategory();
             LinkPages();
-          
+            MessageBox.Show("No siema");
         }
         private void LinkPages()
         {
             for (int i = 0; i < 15; i++)
             {
-                if(category[i] != null)
-                links = Links[i].links_pages();
+                if (category[i] != null)
+                {
+                    linksAll[i] = Links[i].links_pages();
+                    dataAll[i] = Tel[i].Return_data((string[,])linksAll[i]);
+                    
+                }
+
             }
             
         }
@@ -41,7 +52,8 @@ namespace OlxResearch
             {
                 if (category[i] != null)
                     {
-                    Links[i] = new ReturnLinks(category[i], 2, i);
+                    Links[i] = new ReturnLinks(category[i], 2);
+                    Tel[i] = new ReturnTel(2, formUp);
                     }
                 
             }

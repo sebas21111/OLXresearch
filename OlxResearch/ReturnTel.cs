@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenWebClient;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace OlxResearch
 {
@@ -15,11 +16,13 @@ namespace OlxResearch
         string tel, index, tel100, name100, place100, place200, date100;
         int positionName, positionTel, positionPlace1, positionPlace2, positionDate, pages;
         TextInfo bigLetters = CultureInfo.CurrentCulture.TextInfo;
+        Form1 formUp;
 
-
-        public ReturnTel(int pages)
+        public ReturnTel(int pages, Form1 formUp)
         {
             this.pages = pages;
+            this.formUp = formUp;
+            
         }
 
         public string[,,] Return_data(string[,] links)
@@ -43,11 +46,16 @@ namespace OlxResearch
 
                         if (links[i, j] != null)
                         {
-                            RName(i, j);
-                            RPlace1(i, j);
-                            RPlace2(i, j);
-                            RDate(i, j);
-                            RTel(i, j);
+                            if(formUp.checkBox16.Checked)
+                                RName(i, j);
+                            if (formUp.checkBox18.Checked)
+                                RPlace1(i, j);
+                            if (formUp.checkBox19.Checked)
+                                RPlace2(i, j);
+                            if (formUp.checkBox20.Checked)
+                                RDate(i, j);
+                            if (formUp.checkBox17.Checked)
+                                RTel(i, j);
                         }
                     }
 
