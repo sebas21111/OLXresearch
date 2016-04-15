@@ -13,13 +13,20 @@ namespace OlxResearch
 {
     public partial class Form1 : Form
     {
-        
+        public string ReurnFileDialog
+        {
+            get
+            {
+                return saveFileDialog1.FileName;
+            }
+            
+        }
         public Form1()
         {
             InitializeComponent();
            
-
         }
+
         
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -43,7 +50,10 @@ namespace OlxResearch
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            saveFileDialog1.FileName = "Raport";
+            saveFileDialog1.Title = "Zapisywanie raportu";
+            saveFileDialog1.DefaultExt = ".xlsx";
+            saveFileDialog1.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -59,9 +69,9 @@ namespace OlxResearch
         private void button2_Click(object sender, EventArgs e)
         {
             Handling sterowanie = new Handling(this);
-            //Thread thr = new Thread(sterowanie.Start);
-            //thr.Start();
-            sterowanie.Start();
+            Thread thr = new Thread(sterowanie.Start);
+            thr.Start();
+            //sterowanie.Start();
            
 
 
@@ -170,6 +180,11 @@ namespace OlxResearch
                 label3.Visible = false;
                 textBox3.Visible = false;
             }
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

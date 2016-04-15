@@ -60,6 +60,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -470,6 +471,7 @@
         private System.Windows.Forms.Label label2;
         internal System.Windows.Forms.TextBox textBox1;
         internal System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

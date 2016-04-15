@@ -29,7 +29,9 @@ namespace OlxResearch
             Choice();
             CreateCategory();
             LinkPages();
-            MessageBox.Show("No siema");
+            GenerateExcel Generate = new GenerateExcel(dataAll, formUp);
+            Generate.Generate();
+            //MessageBox.Show("No siema");
         }
         private void LinkPages()
         {
@@ -51,8 +53,8 @@ namespace OlxResearch
             {
                 if (category[i] != null)
                     {
-                    Links[i] = new ReturnLinks(category[i], 5);
-                    Tel[i] = new ReturnTel(5, formUp);
+                    Links[i] = new ReturnLinks(category[i], 2);
+                    Tel[i] = new ReturnTel(2, formUp);
                     }
                 
             }

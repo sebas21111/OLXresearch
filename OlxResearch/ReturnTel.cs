@@ -123,6 +123,10 @@ namespace OlxResearch
                     delete = true;
                 }
             }
+            else
+            {
+                delete = true;
+            }
         }
 
         void RPlace1(int i, int j)
@@ -136,7 +140,7 @@ namespace OlxResearch
             }
             if (positionPlace1 > 0)
             {
-                if (formUp.textBox1.Text == null)
+                if (formUp.textBox1.Text == "")
                 {
                     data[i, j, 2] = bigLetters.ToTitleCase(place100.Substring(0, positionPlace1).Trim());
                 }
@@ -149,7 +153,8 @@ namespace OlxResearch
                     }
                     else
                     {
-                        delete = true;
+                        MessageBox.Show(formUp.textBox1.Text);
+                       // delete = true;
                     }
                 }
             }
@@ -170,7 +175,7 @@ namespace OlxResearch
             }
             if (positionPlace2 > 0)
             {
-                if (formUp.textBox2.Text == null)
+                if (formUp.textBox2.Text == "")
                 {
                     data[i, j, 3] = bigLetters.ToTitleCase(place200.Substring(0, positionPlace2).Trim());
                 }
@@ -207,7 +212,7 @@ namespace OlxResearch
             }
             if (positionDate > 0)
             {
-                if (formUp.textBox3.Text == null)
+                if (formUp.textBox3.Text == "")
                 {
                     data[i, j, 4] = date100.Substring(0, positionDate).Trim();
                 }
