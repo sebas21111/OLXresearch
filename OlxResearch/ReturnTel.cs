@@ -13,8 +13,9 @@ namespace OlxResearch
     {
 
         string[,,] data = new string[501, 42, 5];
-        string tel, index, tel100, name100, place100, place200, date100;
-        int positionName, positionTel, positionPlace1, positionPlace2, positionDate, pages;
+        string tel, index, tel100, name100, place100, place200, date100, date100if;
+        int positionName, positionTel, positionPlace1, positionPlace2, positionDate, pages, date;
+        bool delete = false;
         TextInfo bigLetters = CultureInfo.CurrentCulture.TextInfo;
         Form1 formUp;
 
@@ -56,6 +57,8 @@ namespace OlxResearch
                                 RDate(i, j);
                             if (formUp.checkBox17.Checked)
                                 RTel(i, j);
+                            if (delete)
+                                Delete(i, j);
                         }
                     }
 
@@ -65,7 +68,15 @@ namespace OlxResearch
 
             return data;
         }
-
+        void Delete(int i, int j)
+        {
+            data[i, j, 0] = null;
+            data[i, j, 1] = null;
+            data[i, j, 2] = null;
+            data[i, j, 3] = null;
+            data[i, j, 4] = null;
+            delete = false;
+        }
         void RName(int i, int j)
         {
             positionName = index.IndexOf("<span class=\"block color-5 brkword xx-large\">", 0);
@@ -76,7 +87,14 @@ namespace OlxResearch
                 positionName = name100.IndexOf("<", 0);
             }
             if (positionName > 0)
+            {
                 data[i, j, 0] = bigLetters.ToTitleCase(name100.Substring(0, positionName));
+            }
+            else
+            {
+                delete = true;
+            }
+            
         }
         void RTel(int i, int j)
         {
@@ -97,7 +115,13 @@ namespace OlxResearch
                 tel100 = index.Substring(10);
                 positionTel = tel100.IndexOf("\"");
                 if (tel100[0] != '<')
+                {
                     data[i, j, 1] = tel100.Substring(0, positionTel);
+                }
+                else
+                {
+                    delete = true;
+                }
             }
         }
 
@@ -111,7 +135,28 @@ namespace OlxResearch
                 positionPlace1 = place100.IndexOf("'", 0);
             }
             if (positionPlace1 > 0)
-                data[i, j, 2] = bigLetters.ToTitleCase(place100.Substring(0, positionPlace1).Trim());
+            {
+                if (formUp.textBox1.Text == null)
+                {
+                    data[i, j, 2] = bigLetters.ToTitleCase(place100.Substring(0, positionPlace1).Trim());
+                }
+                else
+                {
+                    place100 = place100.Substring(0, positionPlace1).Trim();
+                    if (place100.ToUpper() == formUp.textBox1.Text.ToUpper())
+                    {
+                        data[i, j, 2] = bigLetters.ToTitleCase(place100);
+                    }
+                    else
+                    {
+                        delete = true;
+                    }
+                }
+            }
+            else
+            {
+                delete = true;
+            }
         }
 
         void RPlace2(int i, int j)
@@ -124,7 +169,29 @@ namespace OlxResearch
                 positionPlace2 = place200.IndexOf("'", 0);
             }
             if (positionPlace2 > 0)
-                data[i, j, 3] = bigLetters.ToTitleCase(place200.Substring(0, positionPlace2).Trim());
+            {
+                if (formUp.textBox2.Text == null)
+                {
+                    data[i, j, 3] = bigLetters.ToTitleCase(place200.Substring(0, positionPlace2).Trim());
+                }
+                else
+                {
+                    place200 = place200.Substring(0, positionPlace2).Trim();
+                    if(place200.ToUpper() == formUp.textBox2.Text.ToUpper())
+                    {
+                        data[i, j, 3] = bigLetters.ToTitleCase(place200);
+                    }
+                    else
+                    {
+                        delete = true;
+                    }
+                }
+            }
+            else
+            {
+                delete = true;
+            }
+                    
         }
 
         void RDate(int i, int j)
@@ -139,7 +206,32 @@ namespace OlxResearch
                 positionDate = date100.IndexOf(",", 0);
             }
             if (positionDate > 0)
-                data[i, j, 4] = date100.Substring(0, positionDate).Trim();
+            {
+                if (formUp.textBox3.Text == null)
+                {
+                    data[i, j, 4] = date100.Substring(0, positionDate).Trim();
+                }
+                else
+                {
+                    date100if = date100.Substring(0, positionDate).Trim();
+                    date100if = date100if.Substring((date100if.Length - 4), 4);
+                    date = int.Parse(date100if);
+                    if (date >= int.Parse(formUp.textBox3.Text))
+                    {
+                        data[i, j, 4] = date100.Substring(0, positionDate).Trim();
+                    }
+                    else
+                    {
+                        delete = true;
+                    }
+                    
+
+                }
+            }
+            else
+            {
+                delete = true;
+            }
         }
 
 

@@ -271,6 +271,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 11;
+            this.textBox3.Visible = false;
             // 
             // label3
             // 
@@ -280,6 +281,7 @@
             this.label3.Size = new System.Drawing.Size(120, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Powyżej któregoś roku?";
+            this.label3.Visible = false;
             // 
             // textBox2
             // 
@@ -287,6 +289,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 9;
+            this.textBox2.Visible = false;
             // 
             // label2
             // 
@@ -296,6 +299,7 @@
             this.label2.Size = new System.Drawing.Size(161, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Jakieś konkretne województwo?";
+            this.label2.Visible = false;
             // 
             // textBox1
             // 
@@ -303,6 +307,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 7;
+            this.textBox1.Visible = false;
             // 
             // label1
             // 
@@ -312,6 +317,7 @@
             this.label1.Size = new System.Drawing.Size(127, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Jakieś konkretne miasto?";
+            this.label1.Visible = false;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // checkBox21
@@ -334,6 +340,7 @@
             this.checkBox20.TabIndex = 4;
             this.checkBox20.Text = "Data dodania";
             this.checkBox20.UseVisualStyleBackColor = true;
+            this.checkBox20.CheckedChanged += new System.EventHandler(this.checkBox20_CheckedChanged);
             // 
             // checkBox19
             // 
@@ -344,6 +351,7 @@
             this.checkBox19.TabIndex = 3;
             this.checkBox19.Text = "Województwo";
             this.checkBox19.UseVisualStyleBackColor = true;
+            this.checkBox19.CheckedChanged += new System.EventHandler(this.checkBox19_CheckedChanged);
             // 
             // checkBox18
             // 
@@ -354,6 +362,7 @@
             this.checkBox18.TabIndex = 2;
             this.checkBox18.Text = "Miasto";
             this.checkBox18.UseVisualStyleBackColor = true;
+            this.checkBox18.CheckedChanged += new System.EventHandler(this.checkBox18_CheckedChanged);
             // 
             // checkBox17
             // 
@@ -416,6 +425,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "OlxResearch v. 1.0";
             this.groupBox1.ResumeLayout(false);
@@ -454,11 +464,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
+        internal System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        internal System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.TextBox textBox1;
         internal System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace OlxResearch
 {
-    class Handling //: Form1
+    class Handling 
     {
         string[] category = new string[15];
         ReturnLinks[] Links = new ReturnLinks[15];
@@ -25,8 +25,7 @@ namespace OlxResearch
             this.formUp = formUp;
         }
         public void Start()
-        {
-            
+        {           
             Choice();
             CreateCategory();
             LinkPages();
@@ -52,8 +51,8 @@ namespace OlxResearch
             {
                 if (category[i] != null)
                     {
-                    Links[i] = new ReturnLinks(category[i], 2);
-                    Tel[i] = new ReturnTel(2, formUp);
+                    Links[i] = new ReturnLinks(category[i], 5);
+                    Tel[i] = new ReturnTel(5, formUp);
                     }
                 
             }

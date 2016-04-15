@@ -129,5 +129,47 @@ namespace OlxResearch
                 checkBox14.Checked = false;
             }
         }
+
+        private void checkBox18_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox18.Checked == true)
+            {
+                label1.Visible = true;
+                textBox1.Visible = true;
+            }
+            else
+            {
+                label1.Visible = false;
+                textBox1.Visible = false;
+            }
+        }
+
+        private void checkBox19_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox19.Checked ==true)
+            {
+                label2.Visible = true;
+                textBox2.Visible = true;
+            }
+            else
+            {
+                label2.Visible = false;
+                textBox2.Visible = false;
+            }
+        }
+
+        private void checkBox20_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox20.Checked == true)
+            {
+                label3.Visible = true;
+                textBox3.Visible = true;
+            }
+            else
+            {
+                label3.Visible = false;
+                textBox3.Visible = false;
+            }
+        }
     }
 }
