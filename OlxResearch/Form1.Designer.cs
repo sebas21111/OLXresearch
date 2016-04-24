@@ -61,6 +61,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -122,6 +123,7 @@
             this.checkBox14.TabIndex = 13;
             this.checkBox14.Text = "Usługi i Firmy";
             this.checkBox14.UseVisualStyleBackColor = true;
+            this.checkBox14.CheckedChanged += new System.EventHandler(this.checkBox14_CheckedChanged);
             // 
             // checkBox13
             // 
@@ -132,6 +134,7 @@
             this.checkBox13.TabIndex = 12;
             this.checkBox13.Text = "Zwierzęta";
             this.checkBox13.UseVisualStyleBackColor = true;
+            this.checkBox13.CheckedChanged += new System.EventHandler(this.checkBox13_CheckedChanged);
             // 
             // checkBox12
             // 
@@ -142,6 +145,7 @@
             this.checkBox12.TabIndex = 11;
             this.checkBox12.Text = "Dom i Ogród";
             this.checkBox12.UseVisualStyleBackColor = true;
+            this.checkBox12.CheckedChanged += new System.EventHandler(this.checkBox12_CheckedChanged);
             // 
             // checkBox11
             // 
@@ -152,6 +156,7 @@
             this.checkBox11.TabIndex = 10;
             this.checkBox11.Text = "Muzyka i Edukacja";
             this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox11_CheckedChanged);
             // 
             // checkBox10
             // 
@@ -162,6 +167,7 @@
             this.checkBox10.TabIndex = 9;
             this.checkBox10.Text = "Rolnictwo";
             this.checkBox10.UseVisualStyleBackColor = true;
+            this.checkBox10.CheckedChanged += new System.EventHandler(this.checkBox10_CheckedChanged);
             // 
             // checkBox9
             // 
@@ -172,6 +178,7 @@
             this.checkBox9.TabIndex = 8;
             this.checkBox9.Text = "Praca";
             this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkBox9.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
             // 
             // checkBox8
             // 
@@ -182,6 +189,7 @@
             this.checkBox8.TabIndex = 7;
             this.checkBox8.Text = "Zamienię";
             this.checkBox8.UseVisualStyleBackColor = true;
+            this.checkBox8.CheckedChanged += new System.EventHandler(this.checkBox8_CheckedChanged);
             // 
             // checkBox7
             // 
@@ -192,6 +200,7 @@
             this.checkBox7.TabIndex = 6;
             this.checkBox7.Text = "Sport i Hobby";
             this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
             // 
             // checkBox6
             // 
@@ -213,6 +222,7 @@
             this.checkBox5.TabIndex = 4;
             this.checkBox5.Text = "Nieruchomości";
             this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
             // checkBox4
             // 
@@ -234,6 +244,7 @@
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "Dla dzieci";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -244,6 +255,7 @@
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "Elektronika";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -374,6 +386,7 @@
             this.checkBox17.TabIndex = 1;
             this.checkBox17.Text = "Nr telefonu";
             this.checkBox17.UseVisualStyleBackColor = true;
+            this.checkBox17.CheckedChanged += new System.EventHandler(this.checkBox17_CheckedChanged);
             // 
             // checkBox16
             // 
@@ -400,6 +413,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(30, 57);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 23);
@@ -418,11 +432,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(118, 381);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(250, 23);
+            this.progressBar1.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 473);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -472,6 +494,7 @@
         internal System.Windows.Forms.TextBox textBox1;
         internal System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        internal System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

@@ -35,25 +35,70 @@ namespace OlxResearch
 
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
-
+            CheckGeneruj();
         }
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-
+            CheckGeneruj();
         }
 
         private void checkBox16_CheckedChanged(object sender, EventArgs e)
         {
-            
+            CheckGeneruj();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.FileName = "Raport";
+            saveFileDialog1.OverwritePrompt = true;
+            saveFileDialog1.FileName = "Raport.xlsx";
             saveFileDialog1.Title = "Zapisywanie raportu";
             saveFileDialog1.DefaultExt = ".xlsx";
             saveFileDialog1.ShowDialog();
+            CheckGeneruj();
+        }
+
+        private void CheckGeneruj()
+        {
+            if (saveFileDialog1.Title == "Zapisywanie raportu")
+            {
+                if (checkBox1.Checked ||
+                   checkBox2.Checked ||
+                   checkBox3.Checked ||
+                   checkBox4.Checked ||
+                   checkBox5.Checked ||
+                   checkBox6.Checked ||
+                   checkBox7.Checked ||
+                   checkBox8.Checked ||
+                   checkBox9.Checked ||
+                   checkBox10.Checked ||
+                   checkBox11.Checked ||
+                   checkBox12.Checked ||
+                   checkBox13.Checked ||
+                   checkBox14.Checked ||
+                   checkBox15.Checked
+                 )
+                {
+                    if (checkBox16.Checked ||
+                        checkBox17.Checked ||
+                        checkBox18.Checked ||
+                        checkBox19.Checked ||
+                        checkBox20.Checked ||
+                        checkBox21.Checked
+                        )
+                    {
+                        button2.Enabled = true;
+                    }
+                    else
+                    {
+                        button2.Enabled = false;
+                    }
+                }
+                else
+                {
+                    button2.Enabled = false;
+                }
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -68,6 +113,8 @@ namespace OlxResearch
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+            
             Handling sterowanie = new Handling(this);
             Thread thr = new Thread(sterowanie.Start);
             thr.Start();
@@ -79,7 +126,7 @@ namespace OlxResearch
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-           
+            CheckGeneruj();
         }
 
         private void checkBox21_CheckedChanged(object sender, EventArgs e)
@@ -100,6 +147,7 @@ namespace OlxResearch
                 checkBox19.Checked = false;
                 checkBox20.Checked = false;
             }
+            CheckGeneruj();
         }
 
         private void checkBox15_CheckedChanged(object sender, EventArgs e)
@@ -138,6 +186,7 @@ namespace OlxResearch
                 checkBox13.Checked = false;
                 checkBox14.Checked = false;
             }
+            CheckGeneruj();
         }
 
         private void checkBox18_CheckedChanged(object sender, EventArgs e)
@@ -152,6 +201,7 @@ namespace OlxResearch
                 label1.Visible = false;
                 textBox1.Visible = false;
             }
+            CheckGeneruj();
         }
 
         private void checkBox19_CheckedChanged(object sender, EventArgs e)
@@ -166,6 +216,7 @@ namespace OlxResearch
                 label2.Visible = false;
                 textBox2.Visible = false;
             }
+            CheckGeneruj();
         }
 
         private void checkBox20_CheckedChanged(object sender, EventArgs e)
@@ -180,11 +231,72 @@ namespace OlxResearch
                 label3.Visible = false;
                 textBox3.Visible = false;
             }
+            CheckGeneruj();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox8_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox9_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox10_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox11_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox12_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox13_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox14_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
+        }
+
+        private void checkBox17_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneruj();
         }
     }
 }

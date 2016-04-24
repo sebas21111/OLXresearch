@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace OlxResearch
 {
-    class Handling 
+    class Handling
     {
         string[] category = new string[15];
         ReturnLinks[] Links = new ReturnLinks[15];
@@ -17,6 +18,7 @@ namespace OlxResearch
         object[] linksAll = new object[15];
         object[] dataAll = new object[15];
         Form1 formUp;
+        int numberOfCategories;
 
         public Handling(Form1 formUp)
         {
@@ -25,13 +27,20 @@ namespace OlxResearch
             this.formUp = formUp;
         }
         public void Start()
-        {           
+        {
+            //Form2 form2 = new Form2();
+            //form2.Show();
+            //Thread thr2 = Thread.CurrentThread;
+            //thr2 = new Thread(new ThreadStart(form2.Show));
+            //thr2.
+           // thr2.Start();
             Choice();
             CreateCategory();
+            numberOfCategories = NumberOfCategories();
             LinkPages();
             GenerateExcel Generate = new GenerateExcel(dataAll, formUp);
             Generate.Generate();
-            //MessageBox.Show("No siema");
+            MessageBox.Show("No siema");
         }
         private void LinkPages()
         {
@@ -39,29 +48,34 @@ namespace OlxResearch
             {
                 if (category[i] != null)
                 {
+                    
                     linksAll[i] = Links[i].links_pages();
                     dataAll[i] = Tel[i].Return_data((string[,])linksAll[i]);
-                    
+                    Action<int> updateAction = new Action<int>((value) => formUp.progressBar1.Value += numberOfCategories);
+                    formUp.progressBar1.Invoke(updateAction, 32);
+                   
+                    //formUp.progressBar1.Increment(1);
+
                 }
 
             }
-            
+
         }
         private void CreateCategory()
         {
-            for(int i = 0; i <15; i++)
+            for (int i = 0; i < 15; i++)
             {
                 if (category[i] != null)
-                    {
+                {
                     Links[i] = new ReturnLinks(category[i], 2);
                     Tel[i] = new ReturnTel(2, formUp);
-                    }
-                
+                }
+
             }
         }
         private void Choice()
         {
-            
+
             if (formUp.checkBox1.Checked)
                 category[0] = "motoryzacja";
             if (formUp.checkBox2.Checked)
@@ -91,9 +105,19 @@ namespace OlxResearch
             if (formUp.checkBox14.Checked)
                 category[13] = "uslugi-firmy";
             if (formUp.checkBox15.Checked)
-                category[14] = "all";                  
+                category[14] = "all";
         }
-        
 
+        private int NumberOfCategories()
+        {
+            int i = 0;
+            for(int j = 0; j < 15; j++)
+            {
+                if (this.category[j] != null)
+                    i++;
+            }
+            i = 100 / i;
+            return i;
+        }
     }
 }
