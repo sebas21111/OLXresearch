@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace OlxResearch
 {
-    class Handling
+    public class Handling
     {
         string[] category = new string[15];
         ReturnLinks[] Links = new ReturnLinks[15];
@@ -18,13 +18,15 @@ namespace OlxResearch
         object[] linksAll = new object[15];
         object[] dataAll = new object[15];
         Form1 formUp;
-        int numberOfCategories;
+        Form2 form2;
+        public int numberOfCategories { get; private set; }
 
-        public Handling(Form1 formUp)
+        public Handling(Form1 formUp, Form2 form2)
         {
             /* Można było również zrobić to przez publiczną właściwość w Form1 
                która by zwracała czy checkBox jest kliknięty */
             this.formUp = formUp;
+            this.form2 = form2;
         }
         public void Start()
         {
@@ -40,7 +42,7 @@ namespace OlxResearch
             LinkPages();
             GenerateExcel Generate = new GenerateExcel(dataAll, formUp);
             Generate.Generate();
-            MessageBox.Show("No siema");
+            //MessageBox.Show("No siema");
         }
         private void LinkPages()
         {
@@ -51,9 +53,12 @@ namespace OlxResearch
                     
                     linksAll[i] = Links[i].links_pages();
                     dataAll[i] = Tel[i].Return_data((string[,])linksAll[i]);
-                    Action<int> updateAction = new Action<int>((value) => formUp.progressBar1.Value += numberOfCategories);
-                    formUp.progressBar1.Invoke(updateAction, 32);
-                   
+                    //Action<int> updateAction = new Action<int>((value) => form2.progressBar1.Value += numberOfCategories);
+                    //formUp.progressBar1.Invoke(updateAction, 32);
+                    Action<int> updateAction = new Action<int>((value) => form2.Proces(numberOfCategories));
+                    form2.progressBar1.Invoke(updateAction, 32);
+                    //form2.Proces(numberOfCategories);
+
                     //formUp.progressBar1.Increment(1);
 
                 }
@@ -117,6 +122,7 @@ namespace OlxResearch
                     i++;
             }
             i = 100 / i;
+            
             return i;
         }
     }

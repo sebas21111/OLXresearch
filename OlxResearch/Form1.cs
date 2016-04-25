@@ -113,14 +113,43 @@ namespace OlxResearch
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            
-            Handling sterowanie = new Handling(this);
+
+            Form2 form2 = new Form2(this);
+            Handling sterowanie = new Handling(this, form2);
             Thread thr = new Thread(sterowanie.Start);
             thr.Start();
             //sterowanie.Start();
-           
-
+            
+            form2.Show();
+            //form2.Proces();
+            
+            button1.Enabled = false;
+            button2.Enabled = false;
+            checkBox1.Enabled = false;
+            checkBox2.Enabled = false;
+            checkBox3.Enabled = false;
+            checkBox4.Enabled = false;
+            checkBox5.Enabled = false;
+            checkBox6.Enabled = false;
+            checkBox7.Enabled = false;
+            checkBox8.Enabled = false;
+            checkBox9.Enabled = false;
+            checkBox10.Enabled = false;
+            checkBox11.Enabled = false;
+            checkBox12.Enabled = false;
+            checkBox13.Enabled = false;
+            checkBox14.Enabled = false;
+            checkBox15.Enabled = false;
+            checkBox16.Enabled = false;
+            checkBox17.Enabled = false;
+            checkBox18.Enabled = false;
+            checkBox19.Enabled = false;
+            checkBox20.Enabled = false;
+            checkBox21.Enabled = false;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
+            
 
         }
 
@@ -297,6 +326,11 @@ namespace OlxResearch
         private void checkBox17_CheckedChanged(object sender, EventArgs e)
         {
             CheckGeneruj();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
