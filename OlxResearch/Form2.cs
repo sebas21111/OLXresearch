@@ -57,12 +57,15 @@ namespace OlxResearch
 
         private void button1_Click(object sender, EventArgs e)
         {
+            form1.thr.Abort();
             this.EndOperation();
         }
         void EndOperation()
         {
             this.Close();
-
+            form1.label1.Enabled = true;
+            form1.label2.Enabled = true;
+            form1.label3.Enabled = true;
             form1.button1.Enabled = true;
             form1.button2.Enabled = true;
             form1.checkBox1.Enabled = true;

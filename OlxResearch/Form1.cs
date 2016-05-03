@@ -13,6 +13,7 @@ namespace OlxResearch
 {
     public partial class Form1 : Form
     {
+        internal Thread thr;
         public string ReurnFileDialog
         {
             get
@@ -116,13 +117,15 @@ namespace OlxResearch
 
             Form2 form2 = new Form2(this);
             Handling sterowanie = new Handling(this, form2);
-            Thread thr = new Thread(sterowanie.Start);
+            thr = new Thread(sterowanie.Start);
             thr.Start();
             //sterowanie.Start();
             
             form2.Show();
             //form2.Proces();
-            
+            label1.Enabled = false;
+            label2.Enabled = false;
+            label3.Enabled = false;
             button1.Enabled = false;
             button2.Enabled = false;
             checkBox1.Enabled = false;

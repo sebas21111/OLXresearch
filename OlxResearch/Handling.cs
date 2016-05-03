@@ -72,8 +72,8 @@ namespace OlxResearch
             {
                 if (category[i] != null)
                 {
-                    Links[i] = new ReturnLinks(category[i], 2);
-                    Tel[i] = new ReturnTel(2, formUp);
+                    Links[i] = new ReturnLinks(category[i], 500);
+                    Tel[i] = new ReturnTel(500, formUp);
                 }
 
             }
