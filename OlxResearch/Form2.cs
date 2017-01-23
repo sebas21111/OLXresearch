@@ -28,18 +28,21 @@ namespace OlxResearch
         {
             // Action<int> updateAction = new Action<int>((value) => progressBar1.Value += sterowanie.numberOfCategories);
             // progressBar1.Invoke(updateAction, 32);
+            
             if(progressBar1.Value > 95)
             {
                 i = 100 - progressBar1.Value;
                 progressBar1.Value += i;
             }
-
-            progressBar1.Value += proces;
+            if (progressBar1.Value == 1)
+                progressBar1.Value += proces - 1;
+            else
+                progressBar1.Value += proces;
             transparentLabel1.Text = progressBar1.Value.ToString()+"%";
             this.Refresh();
             if (progressBar1.Value == 100)
             {
-                MessageBox.Show("Raport wygenerowany!");
+                MessageBox.Show("Raport wygenerowany!","Gratulacje!");
                 this.EndOperation();
             }
         }
@@ -92,6 +95,7 @@ namespace OlxResearch
             form1.textBox1.Enabled = true;
             form1.textBox2.Enabled = true;
             form1.textBox3.Enabled = true;
+            form1.textBox4.Enabled = true;
         }
 
         private void label2_Click(object sender, EventArgs e)

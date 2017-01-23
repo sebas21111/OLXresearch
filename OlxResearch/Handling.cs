@@ -35,14 +35,15 @@ namespace OlxResearch
             //Thread thr2 = Thread.CurrentThread;
             //thr2 = new Thread(new ThreadStart(form2.Show));
             //thr2.
-           // thr2.Start();
+            // thr2.Start();
             Choice();
             CreateCategory();
             numberOfCategories = NumberOfCategories();
             LinkPages();
             GenerateExcel Generate = new GenerateExcel(dataAll, formUp);
             Generate.Generate();
-            //MessageBox.Show("No siema");
+
+            
         }
         private void LinkPages()
         {
@@ -68,15 +69,18 @@ namespace OlxResearch
         }
         private void CreateCategory()
         {
+            int pages = int.Parse(formUp.textBox4.Text);
+            
             for (int i = 0; i < 15; i++)
             {
                 if (category[i] != null)
                 {
-                    Links[i] = new ReturnLinks(category[i], 500);
-                    Tel[i] = new ReturnTel(500, formUp);
+                    Links[i] = new ReturnLinks(category[i], pages);
+                    Tel[i] = new ReturnTel(pages, formUp);
                 }
 
             }
+            
         }
         private void Choice()
         {

@@ -114,46 +114,59 @@ namespace OlxResearch
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int pages = 0;
+            bool result = int.TryParse(textBox4.Text, out pages);
+            if (result == false)
+            {
+                MessageBox.Show("Podaj prawidłową ilość stron", "Uwaga");
+            }
+            else
+            {
+                if (pages > 500)
+                {
+                    MessageBox.Show("Podaj ilość stron w przedziale <1;500>", "Uwaga");
+                }
+                else {
+                    Form2 form2 = new Form2(this);
+                    Handling sterowanie = new Handling(this, form2);
+                    thr = new Thread(sterowanie.Start);
+                    thr.Start();
+                    //sterowanie.Start();
 
-            Form2 form2 = new Form2(this);
-            Handling sterowanie = new Handling(this, form2);
-            thr = new Thread(sterowanie.Start);
-            thr.Start();
-            //sterowanie.Start();
-            
-            form2.Show();
-            //form2.Proces();
-            label1.Enabled = false;
-            label2.Enabled = false;
-            label3.Enabled = false;
-            button1.Enabled = false;
-            button2.Enabled = false;
-            checkBox1.Enabled = false;
-            checkBox2.Enabled = false;
-            checkBox3.Enabled = false;
-            checkBox4.Enabled = false;
-            checkBox5.Enabled = false;
-            checkBox6.Enabled = false;
-            checkBox7.Enabled = false;
-            checkBox8.Enabled = false;
-            checkBox9.Enabled = false;
-            checkBox10.Enabled = false;
-            checkBox11.Enabled = false;
-            checkBox12.Enabled = false;
-            checkBox13.Enabled = false;
-            checkBox14.Enabled = false;
-            checkBox15.Enabled = false;
-            checkBox16.Enabled = false;
-            checkBox17.Enabled = false;
-            checkBox18.Enabled = false;
-            checkBox19.Enabled = false;
-            checkBox20.Enabled = false;
-            checkBox21.Enabled = false;
-            textBox1.Enabled = false;
-            textBox2.Enabled = false;
-            textBox3.Enabled = false;
-            
-
+                    form2.Show();
+                    //form2.Proces();
+                    label1.Enabled = false;
+                    label2.Enabled = false;
+                    label3.Enabled = false;
+                    button1.Enabled = false;
+                    button2.Enabled = false;
+                    checkBox1.Enabled = false;
+                    checkBox2.Enabled = false;
+                    checkBox3.Enabled = false;
+                    checkBox4.Enabled = false;
+                    checkBox5.Enabled = false;
+                    checkBox6.Enabled = false;
+                    checkBox7.Enabled = false;
+                    checkBox8.Enabled = false;
+                    checkBox9.Enabled = false;
+                    checkBox10.Enabled = false;
+                    checkBox11.Enabled = false;
+                    checkBox12.Enabled = false;
+                    checkBox13.Enabled = false;
+                    checkBox14.Enabled = false;
+                    checkBox15.Enabled = false;
+                    checkBox16.Enabled = false;
+                    checkBox17.Enabled = false;
+                    checkBox18.Enabled = false;
+                    checkBox19.Enabled = false;
+                    checkBox20.Enabled = false;
+                    checkBox21.Enabled = false;
+                    textBox1.Enabled = false;
+                    textBox2.Enabled = false;
+                    textBox3.Enabled = false;
+                    textBox4.Enabled = false;
+                }
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

@@ -79,10 +79,10 @@ namespace OlxResearch
         }
         void RName(int i, int j)
         {
-            positionName = index.IndexOf("<span class=\"block color-5 brkword xx-large\">", 0);
+            positionName = index.IndexOf("<span class=\"block brkword xx-large\">", 0);
             if (positionName > 0)
             {
-                positionName += 45;
+                positionName += 37;
                 name100 = index.Substring(positionName, 30);
                 positionName = name100.IndexOf("<", 0);
             }
@@ -131,12 +131,12 @@ namespace OlxResearch
 
         void RPlace1(int i, int j)
         {
-            positionPlace1 = index.IndexOf("city:", 0);
+            positionPlace1 = index.IndexOf("city\":\"", 0);
             if (positionPlace1 > 0)
             {
-                positionPlace1 += 5;
+                positionPlace1 += 7;
                 place100 = index.Substring(positionPlace1, 35);
-                positionPlace1 = place100.IndexOf("'", 0);
+                positionPlace1 = place100.IndexOf("\"", 0);
             }
             if (positionPlace1 > 0)
             {
@@ -166,12 +166,12 @@ namespace OlxResearch
 
         void RPlace2(int i, int j)
         {
-            positionPlace2 = index.IndexOf("region:", 0);
+            positionPlace2 = index.IndexOf("region\":\"", 0);
             if (positionPlace2 > 0)
             {
-                positionPlace2 += 7;
+                positionPlace2 += 9;
                 place200 = index.Substring(positionPlace2, 30);
-                positionPlace2 = place200.IndexOf("'", 0);
+                positionPlace2 = place200.IndexOf("\"", 0);
             }
             if (positionPlace2 > 0)
             {
@@ -201,10 +201,10 @@ namespace OlxResearch
 
         void RDate(int i, int j)
         {
-            positionDate = index.IndexOf("class=\"pdingleft10 brlefte5\"", 0);
+            positionDate = index.IndexOf("class=\"pdingleft10 lheight24 brlefte5\"", 0);
             if (positionDate > 0)
             {
-                positionDate += 28;
+                positionDate += 38;
                 date100 = index.Substring(positionDate, 500);
                 positionDate = date100.IndexOf(",", 0);
                 date100 = date100.Substring((positionDate + 1), 20);
